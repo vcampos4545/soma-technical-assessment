@@ -163,39 +163,9 @@ Thanks for your time and effort. We'll be in touch soon!
 - Clear visual representation of task relationships and execution order
 - Professional dashboard-style presentation with color-coded sections
 
-**Frontend Features:**
-
-- Enhanced todo creation form with dependency selection checkboxes
-- Real-time dependency validation with immediate user feedback
-- Visual dependency indicators on each todo tile showing dependency count
-- Comprehensive dependency list display within each todo item
-- Edit functionality for modifying existing dependencies
-
 **Project Analysis Dashboard:**
 
 - **Critical Path Section:** Purple-themed display showing task sequence with arrows
 - **Execution Order Section:** Blue-themed display showing optimal task execution steps
 - **Dependency Levels Section:** Green-themed display showing hierarchical task organization
 - Professional styling with gradients, icons, and responsive design
-
-**Technical Architecture:**
-
-- Modular graph utility functions in `lib/graph.ts` for maintainability
-- Efficient adjacency list representation for O(1) dependency lookups
-- Comprehensive error handling for malformed dependency data
-- Type-safe interfaces for all graph operations and data structures
-
-**User Experience Features:**
-
-- Intuitive dependency selection with checkbox grid interface
-- Clear visual feedback showing selected dependencies
-- Professional modal interface for editing existing todos
-- Responsive design that works across all device sizes
-- Real-time updates when dependencies are modified
-
-**Performance Optimizations:**
-
-- Efficient graph algorithms with O(V+E) complexity
-- Smart caching of graph calculations to avoid redundant processing
-- Optimized dependency parsing with error recovery
-- Minimal re-renders through efficient state management
