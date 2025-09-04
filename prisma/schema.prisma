@@ -13,4 +13,5 @@ model Todo {
   dueDate   DateTime
   imageUrl  String?
   createdAt DateTime @default(now())
+  dependencies String @default("[]") // JSON string of dependency IDs
 }

@@ -19,7 +19,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const { title, dueDate } = await request.json();
+    const { title, dueDate, dependencies } = await request.json();
     if (!title || title.trim() === "") {
       return NextResponse.json({ error: "Title is required" }, { status: 400 });
     }
@@ -31,9 +31,9 @@ export async function POST(request: Request) {
       );
     }
 
-    // Convert string date to Date object and set to end of day
-    const dueDateObj = new Date(dueDate);
-    dueDateObj.setHours(23, 59, 59, 999); // Set to end of day (11:59:59.999 PM)
+    // Convert string date to Date object and ensure it's treated as local date
+    const [year, month, day] = dueDate.split("-").map(Number);
+    const dueDateObj = new Date(year, month - 1, day, 12, 0, 0, 0); // Set to noon to avoid timezone issues
 
     // Fetch image from Pexels API
     const pexelsApiKey = process.env.PEXELS_API_KEY;
@@ -71,6 +71,7 @@ export async function POST(request: Request) {
         title,
         dueDate: dueDateObj,
         imageUrl,
+        dependencies: JSON.stringify(dependencies || []),
       },
     });
     return NextResponse.json(todo, { status: 201 });
